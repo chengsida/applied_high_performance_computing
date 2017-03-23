@@ -1,0 +1,12 @@
+#!/bin/sh
+
+#SBATCH --account=VR0084
+#SBATCH --time=0:30:0
+#SBATCH --nodes=1
+#SBATCH --exclusive
+#SBATCH --mem=22528
+#SBATCH --job-name=waterequation_mpi.ccp
+#SBATCH --output=waterequation_mpi.out
+#SBATCH --error=waterequation_mpi.err
+
+srun -n 2 --nodes 1 --ntasks-per-node 2 ./waterequation_mpi

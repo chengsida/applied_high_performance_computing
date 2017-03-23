@@ -1,0 +1,19 @@
+#!/bin/sh
+
+#SBATCH --account=VR0084
+#SBATCH --time=0:30:0
+#SBATCH --nodes=1
+#SBATCH --exclusive
+#SBATCH --mem=22528
+#SBATCH --job-name=waterequationOpenMP.ccp
+#SBATCH --output=waterequationOpenMP.out
+#SBATCH --error=waterequationOpenMP.err
+
+export OMP_NUM_THREADS=1
+./waterequationtemp 1000000000
+export OMP_NUM_THREADS=2
+./waterequationtemp 1000000000
+export OMP_NUM_THREADS=4
+./waterequationtemp 1000000000
+export OMP_NUM_THREADS=8
+./waterequationtemp 1000000000
